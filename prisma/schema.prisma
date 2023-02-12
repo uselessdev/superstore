@@ -57,6 +57,7 @@ model User {
 
   accounts Account[]
   sessions Session[]
+  Event    Event[]
 
   @@map("users")
 }
@@ -81,4 +82,16 @@ model Company {
   deletedAt   DateTime? @map("deleted_at")
 
   @@map("companies")
+}
+
+model Event {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  event     String // Enum
+  payload   String // @db.Json
+  createdAt DateTime @default(now()) @map("created_at")
+
+  actor User @relation(fields: [userId], references: [id])
+
+  @@map("events")
 }
