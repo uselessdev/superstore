@@ -1,0 +1,16 @@
+{
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[prisma]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
