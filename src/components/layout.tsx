@@ -19,15 +19,25 @@ import { useRouter } from 'next/router'
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
 import { sidebarmenu } from '@/menu'
 import { getBaseUrl } from '@/functions/get-base-url'
+import { CreateCompanyForm, useCompany } from '@/modules/companies'
 import { Link } from './link'
 
 export function Layout({ children }: React.PropsWithChildren<unknown>) {
   const { pathname } = useRouter()
   const { status: session } = useSession()
   const { onClose } = useDisclosure()
+  const { company, isLoading } = useCompany()
+
+  if (isLoading) {
+    return null
+  }
 
   if (session === 'unauthenticated' && pathname === '/') {
     return <>{children}</>
+  }
+
+  if (!Boolean(company)) {
+    return <CreateCompanyForm />
   }
 
   return (
@@ -109,7 +119,7 @@ export function Layout({ children }: React.PropsWithChildren<unknown>) {
           </VStack>
           <VStack w="full" mt="auto" alignItems="flex-start" py={6} px={4}>
             <Heading px={4} userSelect="none" fontSize="sm">
-              Book Store
+              {company?.tradeName}
             </Heading>
             <Button
               size="sm"

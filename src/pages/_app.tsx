@@ -5,6 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { api } from '@/lib/api'
 import { theme } from '@/theme'
 import { Layout } from '@/components/layout'
+import { CompanyProvider } from '@/modules/companies'
 
 const App: AppType<{ session: Session | null }> = ({
   Component,
@@ -13,9 +14,11 @@ const App: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <ChakraProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <CompanyProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </CompanyProvider>
       </ChakraProvider>
     </SessionProvider>
   )
