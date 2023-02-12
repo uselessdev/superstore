@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { AppType } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
 import type { Session } from 'next-auth'
+import { api } from '@/lib/api'
 
 const App: AppType<{ session: Session | null }> = ({
   Component,
@@ -14,4 +15,4 @@ const App: AppType<{ session: Session | null }> = ({
   )
 }
 
-export default App
+export default api.withTRPC(App)
