@@ -4,6 +4,7 @@ import type { Session } from 'next-auth'
 import { ChakraProvider } from '@chakra-ui/react'
 import { api } from '@/lib/api'
 import { theme } from '@/theme'
+import { Layout } from '@/components/layout'
 
 const App: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,7 +13,9 @@ const App: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ChakraProvider>
     </SessionProvider>
   )
