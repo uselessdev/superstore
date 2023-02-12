@@ -69,3 +69,16 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
+
+model Company {
+  id          String    @id @default(cuid())
+  tradeName   String    @map("trade_name")
+  companyName String    @map("company_name")
+  cnpj        String
+  website     String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  @@map("companies")
+}
