@@ -23,6 +23,7 @@
     "@trpc/next": "^10.11.0",
     "@trpc/server": "^10.11.0",
     "@types/react-input-mask": "^3.0.2",
+    "date-fns": "^2.29.3",
     "framer-motion": "^9.0.2",
     "next": "13.1.6",
     "next-auth": "^4.19.2",
