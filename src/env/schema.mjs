@@ -11,8 +11,8 @@ export const serverSchema = z.object({
     str => process.env.VERCEL_URL ?? str,
     process.env.VERCEL ? z.string() : z.string().url()
   ),
-  GITHUB_CLIENT_ID: z.string(),
-  GITHUB_SECRET_KEY: z.string(),
+  GH_CLIENT_ID: z.string(),
+  GH_SECRET_KEY: z.string(),
 })
 export const clientSchema = z.object({})
 
