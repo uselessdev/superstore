@@ -13,6 +13,10 @@ export const serverSchema = z.object({
   ),
   GH_CLIENT_ID: z.string(),
   GH_SECRET_KEY: z.string(),
+  AWS_S3_ACCESS_KEY: z.string(),
+  AWS_S3_SECRET_KEY: z.string(),
+  AWS_S3_BUCKET_NAME: z.string(),
+  AWS_S3_BUCKET_REGION: z.string(),
 })
 export const clientSchema = z.object({})
 

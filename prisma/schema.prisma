@@ -95,3 +95,16 @@ model Event {
 
   @@map("events")
 }
+
+model Media {
+  id          String    @id @default(cuid())
+  pathname    String
+  description String?
+  size        Int
+  version     Int?      @default(1)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  @@map("medias")
+}
